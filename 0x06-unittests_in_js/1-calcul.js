@@ -1,13 +1,23 @@
-const calculateNumber = (a, b, type) => {
-  if (type === 'SUM') {
-    return Math.round(a) + Math.round(b);
+function calculateNumber(type, a, b) {
+  const an = Math.round(a);
+  const bn = Math.round(b);
+  let c = 0;
+  switch (type) {
+  case 'SUM':
+c = an + bn;
+break;
+  case 'SUBTRACT':
+c = an - bn;
+break;
+  case 'DIVIDE':
+    if (bn === 0) {
+          c = "Error";
+    } else {
+          c = an / bn;
+    }
+    break;
   }
-  if (type === 'SUBTRACT') {
-    return Math.round(a) - Math.round(b);
-  }
-  if (type === 'DIVIDE' && Math.round(b) !== 0) {
-    return Math.round(a) / Math.round(b);
-  }
-  return null;
-};
+  return c;
+}
+
 module.exports = calculateNumber;
